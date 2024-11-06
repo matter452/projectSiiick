@@ -11,6 +11,10 @@ module.exports = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      backgroundImage: {
+        'hero-image': "url('/img/jared-tomasek-0NzzGgi4wzo-unsplash.jpg')",
+        'drawer-hat': "url('/img/drawer-hat.jpg')",
+      }
     },
   },
   plugins: [],
