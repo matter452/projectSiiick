@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import * as React from 'react';
 import ItemGrid from './itemsGrid';
+import SideFilter from './sidefilters';
 
 const mockProduct = {
     "productId": "09",
@@ -22,7 +23,8 @@ export default function ShopPage()
 {
     return (
         <div className=''>
-            <ItemGrid product={mockProduct}/>
+            <SideFilter products={mockProduct}/>
+           {/* <ItemGrid product={mockProduct}/> */}
         </div>
     )
 }

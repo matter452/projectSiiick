@@ -4,7 +4,7 @@ import * as React from 'react';
 
 export function Card({ product }){
     return (
-    <div className='bg-slate-50 border-slate-100 border rounded p-1 border-slate-300 max-w-sm'>
+    <div className='bg-slate-50 border-slate-100 border rounded p-1 border-slate-300 min-w-24 max-w-sm'>
         <div className='relative w-100 mb-4 p-8'>
             <img src={product.imgPath} fill={true} className="object-contain"></img>
         </div>
@@ -21,7 +21,7 @@ export function Card({ product }){
 
 export default function ItemGrid({ product }) {
     return (
-        <div className='grid grid-cols-3col gap-x-4 place-content-center gap-y-2 m-16'>
+        <div className='col-span-3 grid grid-cols-3 gap-x-4 place-content-center gap-y-2 m-2'>
             <Card product={product} />
             <Card product={product} />
             <Card product={product} />

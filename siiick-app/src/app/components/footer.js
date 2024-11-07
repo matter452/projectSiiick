@@ -61,7 +61,6 @@ export default function FooterComponent() {
           </div>
         </div>
 
-        {/* Bottom Section with Copyright and Social Icons */}
         <div className="w-full bg-gray-700 px-4 py-6 sm:flex sm:items-center sm:justify-between">
           <div className="text-sm text-gray-300">
             <p>So Siiick 2024</p>
