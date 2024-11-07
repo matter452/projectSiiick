@@ -14,6 +14,10 @@ module.exports = {
       backgroundImage: {
         'hero-image': "url('/img/jared-tomasek-0NzzGgi4wzo-unsplash.jpg')",
         'drawer-hat': "url('/img/drawer-hat.jpg')",
+      },
+      gridTemplateColumns: {
+        // Simple 16 column grid
+        '3col': 'repeat(3, minmax(0, .175fr))',
       }
     },
   },
