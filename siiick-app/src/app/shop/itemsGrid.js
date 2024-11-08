@@ -22,14 +22,12 @@ export function Card({ product }){
     )
 };
 
-export default function ItemGrid({ product }) {
+export default function ItemGrid({ products }) {
     return (
         <div className='col-span-3 grid grid-cols-3 gap-x-4 place-content-center gap-y-2 m-2'>
-            <Card product={product} />
-            <Card product={product} />
-            <Card product={product} />
-            <Card product={product} />
-            <Card product={product} />
+            {products.map((product)=>(
+                <Card product={product} />
+            ))}
         </div>
     );
 }

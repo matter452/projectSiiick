@@ -277,7 +277,7 @@ export default function SideFilter({products}) {
                     </Disclosure>
                   ))}
                 </form>
-                <ItemGrid product={products}/>
+                <ItemGrid products={products}/>
               </div>
             </section>
           </main>
