@@ -2,7 +2,7 @@ export const allProducts = [
     {
         "productId": "01",
         "productCategory": "apparel",
-        "subCategory": "men",
+        "subCategory": "hoodies",
         "special": "New Arrival",
         "price": "$50",
         "imgPath": "/img/men-hoodie-1.jpg",
@@ -12,12 +12,12 @@ export const allProducts = [
         "sizes": "S, M, L, XL",
         "brand": "CoolWear",
         "color": "Blue",
-        "tags": "Casual, Cozy"
+        "tags": "Casual, Cozy, Men, Women"
     },
     {
         "productId": "02",
         "productCategory": "apparel",
-        "subCategory": "men",
+        "subCategory": "tops&t-shirts",
         "special": "Best Seller",
         "price": "$40",
         "imgPath": "/img/men-tshirt-1.jpg",
@@ -27,12 +27,12 @@ export const allProducts = [
         "sizes": "M, L, XL",
         "brand": "UrbanFit",
         "color": "White",
-        "tags": "Classic, Simple"
+        "tags": "Classic, Simple, Men, Women"
     },
     {
         "productId": "03",
         "productCategory": "apparel",
-        "subCategory": "men",
+        "subCategory": "pants&bottoms",
         "special": "Limited Edition",
         "price": "$75",
         "imgPath": "/img/men-pants-1.jpg",
@@ -42,12 +42,12 @@ export const allProducts = [
         "sizes": "30, 32, 34, 36",
         "brand": "DenimPro",
         "color": "Indigo",
-        "tags": "Casual, Durable"
+        "tags": "Casual, Durable, Men"
     },
     {
         "productId": "04",
         "productCategory": "apparel",
-        "subCategory": "men",
+        "subCategory": "accessories",
         "special": "New Arrival",
         "price": "$30",
         "imgPath": "/img/men-accessory-1.jpg",
@@ -57,12 +57,12 @@ export const allProducts = [
         "sizes": "One Size",
         "brand": "BeltCo",
         "color": "Brown",
-        "tags": "Accessory, Leather"
+        "tags": "Accessory, Leather, Men"
     },
     {
         "productId": "05",
         "productCategory": "apparel",
-        "subCategory": "women",
+        "subCategory": "hoodies",
         "special": "Best Seller",
         "price": "$55",
         "imgPath": "/img/women-hoodie-1.jpg",
@@ -72,12 +72,12 @@ export const allProducts = [
         "sizes": "XS, S, M, L",
         "brand": "SoftWear",
         "color": "Grey",
-        "tags": "Casual, Warm"
+        "tags": "Casual, Warm, Women"
     },
     {
         "productId": "06",
         "productCategory": "apparel",
-        "subCategory": "women",
+        "subCategory": "tops&t-shirts",
         "special": "Limited Edition",
         "price": "$25",
         "imgPath": "/img/women-top-1.jpg",
@@ -92,7 +92,7 @@ export const allProducts = [
     {
         "productId": "07",
         "productCategory": "apparel",
-        "subCategory": "women",
+        "subCategory": "pants&bottoms",
         "special": "New Arrival",
         "price": "$65",
         "imgPath": "/img/women-pants-1.jpg",
@@ -102,12 +102,12 @@ export const allProducts = [
         "sizes": "XS, S, M, L, XL",
         "brand": "ActiveWear",
         "color": "Navy",
-        "tags": "Active, Comfortable"
+        "tags": "Active, Comfortable, Women"
     },
     {
         "productId": "08",
         "productCategory": "apparel",
-        "subCategory": "women",
+        "subCategory": "accessories",
         "special": "On Sale",
         "price": "$20",
         "imgPath": "/img/women-accessory-1.jpg",
@@ -117,7 +117,7 @@ export const allProducts = [
         "sizes": "One Size",
         "brand": "WarmNest",
         "color": "Red",
-        "tags": "Accessory, Winter"
+        "tags": "Accessory, Winter, Women, Men"
     },
     {
         "productId": "09",
@@ -242,7 +242,7 @@ export const allProducts = [
     {
         "productId": "17",
         "productCategory": "gear",
-        "subCategory": "helmets & pads",
+        "subCategory": "helmets&pads",
         "special": "On Sale",
         "price": "$45",
         "imgPath": "/img/gear-helmet-1.jpg",
@@ -257,7 +257,7 @@ export const allProducts = [
     {
         "productId": "18",
         "productCategory": "gear",
-        "subCategory": "helmets & pads",
+        "subCategory": "helmets&pads",
         "special": "New Arrival",
         "price": "$60",
         "imgPath": "/img/gear-helmet-2.jpg",
@@ -333,7 +333,7 @@ export const allProducts = [
     {
         "productId": "23",
         "productCategory": "gear",
-        "subCategory": "helmets & pads",
+        "subCategory": "helmets&pads",
         "special": "Best Seller",
         "price": "$65",
         "imgPath": "/img/gear-padset-1.jpg",
@@ -378,7 +378,7 @@ export const allProducts = [
     {
         "productId": "26",
         "productCategory": "apparel",
-        "subCategory": "men",
+        "subCategory": "tops&t-shirts",
         "special": "New Arrival",
         "price": "$90",
         "imgPath": "/img/men-jacket-1.jpg",
@@ -388,12 +388,12 @@ export const allProducts = [
         "sizes": "M, L, XL",
         "brand": "ArcticWear",
         "color": "Navy",
-        "tags": "Winter, Waterproof"
+        "tags": "Winter, Waterproof, Men"
     },
     {
         "productId": "27",
         "productCategory": "apparel",
-        "subCategory": "women",
+        "subCategory": "tops&t-shirts",
         "special": "Limited Edition",
         "price": "$35",
         "imgPath": "/img/women-top-2.jpg",
@@ -403,7 +403,7 @@ export const allProducts = [
         "sizes": "S, M, L",
         "brand": "BloomingStyle",
         "color": "White",
-        "tags": "Elegant, Floral"
+        "tags": "Elegant, Floral, Women"
     },
     {
         "productId": "28",
@@ -453,7 +453,7 @@ export const allProducts = [
     {
         "productId": "31",
         "productCategory": "apparel",
-        "subCategory": "tops & t-shirts",
+        "subCategory": "tops&t-shirts",
         "special": "Limited Edition",
         "price": "$35",
         "imgPath": "/img/apparel-tshirt-2.jpg",
@@ -468,7 +468,7 @@ export const allProducts = [
     {
         "productId": "32",
         "productCategory": "apparel",
-        "subCategory": "pants & bottoms",
+        "subCategory": "pants&bottoms",
         "special": "On Sale",
         "price": "$50",
         "imgPath": "/img/apparel-pants-2.jpg",
@@ -573,7 +573,7 @@ export const allProducts = [
     {
         "productId": "39",
         "productCategory": "apparel",
-        "subCategory": "tops & t-shirts",
+        "subCategory": "tops&t-shirts",
         "special": "Exclusive",
         "price": "$25",
         "imgPath": "/img/apparel-tshirt-3.jpg",
@@ -603,7 +603,7 @@ export const allProducts = [
     {
         "productId": "41",
         "productCategory": "apparel",
-        "subCategory": "pants & bottoms",
+        "subCategory": "pants&bottoms",
         "special": "Best Seller",
         "price": "$45",
         "imgPath": "/img/apparel-pants-3.jpg",
@@ -618,7 +618,7 @@ export const allProducts = [
     {
         "productId": "42",
         "productCategory": "gear",
-        "subCategory": "helmets & pads",
+        "subCategory": "helmets&pads",
         "special": "New Arrival",
         "price": "$80",
         "imgPath": "/img/gear-helmet-1.jpg",
@@ -723,7 +723,7 @@ export const allProducts = [
     {
         "productId": "49",
         "productCategory": "apparel",
-        "subCategory": "tops & t-shirts",
+        "subCategory": "tops&t-shirts",
         "special": "New Arrival",
         "price": "$22",
         "imgPath": "/img/apparel-tshirt-4.jpg",
@@ -738,7 +738,7 @@ export const allProducts = [
     {
         "productId": "50",
         "productCategory": "apparel",
-        "subCategory": "pants & bottoms",
+        "subCategory": "pants&bottoms",
         "special": "Exclusive",
         "price": "$48",
         "imgPath": "/img/apparel-pants-4.jpg",
@@ -753,7 +753,7 @@ export const allProducts = [
     {
         "productId": "51",
         "productCategory": "gear",
-        "subCategory": "helmets & pads",
+        "subCategory": "helmets&pads",
         "special": "Limited Edition",
         "price": "$90",
         "imgPath": "/img/gear-helmet-2.jpg",
@@ -822,7 +822,7 @@ export const allProducts = [
         "stylesCount": "1",
         "sizes": "8.5",
         "brand": "ShredMaster",
-        "color": "Black & White",
+        "color": "Black&White",
         "tags": "Durable, Reliable"
     },
     {
@@ -858,7 +858,7 @@ export const allProducts = [
     {
         "productId": "58",
         "productCategory": "apparel",
-        "subCategory": "tops & t-shirts",
+        "subCategory": "tops&t-shirts",
         "special": "Best Seller",
         "price": "$30",
         "imgPath": "/img/apparel-tshirt-5.jpg",
@@ -901,3 +901,22 @@ export const allProducts = [
         "tags": "All-Terrain, Sturdy"
     }
 ]
+
+function filterProductsByKey(array, key, value) {
+    return array.filter(item => item[key] === value);
+}
+
+
+export const apparelProducts = filterProductsByKey(allProducts, "productCategory", "apparel");
+export const gearProducts = filterProductsByKey(allProducts, "productCategory", "gear");
+export const wheelsProducts = filterProductsByKey(allProducts, "subCategory", "wheels");
+export const boardsProducts = filterProductsByKey(allProducts, "subCategory", "boards");
+export const safetyProducts = filterProductsByKey(allProducts, "subCategory", "helmets&pads");
+export const hardwareProducts = filterProductsByKey(allProducts, "subCategory", "hardware");
+export const trucksProducts = filterProductsByKey(allProducts, "subCategory", "trucks");
+export const completesProducts = filterProductsByKey(allProducts, "subCategory", "completes");
+export const shoeProducts = filterProductsByKey(allProducts, "subCategory", "shoes");
+export const accessoriesProducts = filterProductsByKey(allProducts, "subCategory", "accessories");
+export const topsAndTshirtProducts = filterProductsByKey(allProducts, "subCategory", "tops&t-shirts");
+export const pantsAndBottomsProducts = filterProductsByKey(allProducts, "subCategory", "pants&bottoms");
+export const hoodiesProducts = filterProductsByKey(allProducts, "subCategory", "hoodies");
