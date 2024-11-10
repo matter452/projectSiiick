@@ -12,5 +12,5 @@ export default function AddProductToBag({product})
         console.log(`Added ${product.productId} to bag. Bag itmes ${JSON.stringify(bagItems, null, 2)}`);
     };
 
-    return <button className='rounded m-2 bg-slate-900 py-2 px-4 text-md text-white font-black data-[hover]:bg-slate-500 data-[active]:bg-slate-700' onClick={handleAddToBag}>Add to Bag</button>
+    return <button className="border rounded-full text-neutral-50 font-semi-bold bg-zinc-950 p-2 px-4 mt-4 hover:bg-zinc-700" onClick={handleAddToBag}>Add to Bag</button>;
 }

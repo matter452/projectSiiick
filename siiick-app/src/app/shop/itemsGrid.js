@@ -15,7 +15,7 @@ export function Card({ product }){
         <h5 className='text-black font-black'>{product.title}</h5>
         <span className='text-black'>Available Styles: {product.stylesCount}</span>
         <br />
-        <span className='text-black font-semibold'>{product.price}</span>
+        <span className='text-black font-semibold'>${product.price}</span>
         </div>
         </Link>
     </div>

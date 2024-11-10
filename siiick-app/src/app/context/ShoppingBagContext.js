@@ -12,9 +12,9 @@ export default function ShoppingBagProvider({ children }) {
             const itemExists = prevItems.find(item => item.productId === product.productId);
             if (itemExists) {
                 return prevItems.map(item =>
-                    item.productId === product.productId ? { ...item, quantity: item.quantity + 1 } : item
+                    item.productId === product.productId ? { ...item, quantity: item.quantity + 1, price: product.price, title: product.title, brand: product.brand } : item
                 );
-            } else {return prevItems.length > 0 ? [...prevItems, { productId: product.productId, quantity: 1 }] : [{ productId: product.productId, quantity: 1 }];
+            } else {return prevItems.length > 0 ? [...prevItems, { productId: product.productId, quantity: 1, price: product.price, title: product.title, brand: product.brand }] : [{ productId: product.productId, quantity: 1, price: product.price, title: product.title, brand: product.brand  }];
             }
         });
     };

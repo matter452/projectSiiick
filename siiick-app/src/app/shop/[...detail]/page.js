@@ -20,8 +20,7 @@ export default async function Page({ params }){
 
 
     return (
-    <section>
-    
+    <section className='mt-4'>
     <div className="flex flex-row justify-center text-black">
         <div className="flex flex-col min-h-40">
             <div>
@@ -34,8 +33,8 @@ export default async function Page({ params }){
             </div>
         </div>
         <div className="flex flex-col m-16">
-        <h1 className="text-3xl text-black font-black">{product.title}</h1>
-        <span className="font-bold">{product.price}</span>
+        <h1 className="text-3xl text-black font-black mb-2">{product.title}</h1>
+        <span className="font-bold">${product.price}</span>
         <h2 className="font-bold mt-16">Description</h2>
         <p className="mb-16">{product.description}</p>
         <h3 className="font-bold">Styles Available</h3>

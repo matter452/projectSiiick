@@ -20,9 +20,11 @@ import Image from 'next/image';
 import logo from '/public/logo-smallppi.png';
 import Link from 'next/link';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import { Input } from '@mui/material';
 import Badge from '@mui/material/Badge';
 import { ShoppingBagContext } from '../context/ShoppingBagContext';
+import { indigo } from '@mui/material/colors';
 
 const navLinks = [{'Men': "/shop/men"}, {'Women': "/shop/wommen"}, {'Boards': "/shop/gear/boards"},
   {'Gear': "/shop/gear"}, {'Learn': "/learn"}, {'Sale': "/shop/sale"}]
@@ -219,9 +221,9 @@ function ResponsiveAppBar() {
               <Input type='search' placeholder='search' value={searchInput} onChange={(e) => setSearchInput(e.target.value)}>{searchInput}</Input>
             </SearchIconWrapper>
           </Search>
-          <IconButton aria-label='shopping bag' size='large'>
-          <Badge badgeContent={bagItemsCount} color="primary">
-            <ShoppingBagOutlinedIcon fontSize='large'/>
+          <IconButton aria-label={`Shopping bag. Items in bag: ${bagItemsCount}`} size='large'>
+          <Badge badgeContent={bagItemsCount} color="warning">
+            {bagItemsCount < 1 ? <ShoppingBagOutlinedIcon sx={{ color: indigo[50]}} fontSize='large'/> : <Link href={{pathname: `/bag`}}><ShoppingBagIcon sx={{ color: indigo[50]}} fontSize='large'/></Link>}      
             </Badge>
           </IconButton>
           </Box>
