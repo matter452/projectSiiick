@@ -37,25 +37,29 @@ function NavMenu() {
 
   // Menu items to display in NavDrawer
   const menuItems = ['Profile', 'My account', 'Logout'];
+  const navLinks = [{'Men': "/shop/men"}, {'Women': "/shop/wommen"}, {'Boards': "/shop/gear/boards"},
+     {'Gear': "/shop/gear"}, {'Learn': "/learn"}, {'Sale': "/shop/sale"}]
 
   return (
     <nav className="flex flex-row justify-center bg-slate-600 fixed top-0 left-0 right-0 p-4">
       <div className="">
         {/* Loop through categories and create a Button for each */}
-        {['Men', 'Women', 'Boards', 'Gear', 'Learn', 'Sale'].map((category) => (
+        {navLinks.map((link) => {
+          const [[key, value]] = Object.entries(category);
+          return(
           <Button
-            key={category}
+            key={key}
+            href={value}
             aria-controls={open ? 'basic-menu' : undefined}
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
             onClick={handleClick}
-            className="mx-4"
-          >
-            {category}
+            className="mx-4">
+            {key}
           </Button>
-        ))}
+          );
+          })}
         <NavDrawer items={menuItems} anchorEl={anchorEl} open={open} onClose={handleClose} />
-        {/* Pass only the necessary props to NavDrawer */}
       </div>
     </nav>
   );

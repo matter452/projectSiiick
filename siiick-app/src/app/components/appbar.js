@@ -17,8 +17,10 @@ import SearchIcon from '@mui/icons-material/Search';
 import MenuItem from '@mui/material/MenuItem';
 import Image from 'next/image';
 import logo from '/public/logo-smallppi.png';
+import Link from 'next/link';
 
-const pages = ['Men', 'Women', 'Boards', 'Gear', 'Learn', 'Sale'];
+const navLinks = [{'Men': "/shop/men"}, {'Women': "/shop/wommen"}, {'Boards': "/shop/gear/boards"},
+  {'Gear': "/shop/gear"}, {'Learn': "/learn"}, {'Sale': "/shop/sale"}]
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Search = styled('div')(({ theme }) => ({
@@ -132,11 +134,11 @@ function ResponsiveAppBar() {
               onClose={handleCloseNavMenu}
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
-              {pages.map((page) => (
+              {/* {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
                 </MenuItem>
-              ))}
+              ))} */}
               <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -166,15 +168,60 @@ function ResponsiveAppBar() {
           >
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} className="justify-around">
-            {pages.map((page) => (
+              <Link aria-label={`Link for Men's Shop`} href={{ pathname: `/shop/men`}}>
               <Button
-                key={page}
+                key="menLink"
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                Men
               </Button>
-            ))}
+              </Link>
+              <Link aria-label={`Link for Women's Shop`} href={{ pathname: `/shop/women`}}>
+              <Button
+                key="womenLink"
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                Women
+              </Button>
+              </Link>
+              <Link aria-label={`Link for Board Shop`} href={{ pathname: `/shop/gear/boards`}}>
+              <Button
+                key="boardsLink"
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                Boards
+              </Button>
+              </Link>
+              <Link aria-label={`Link for Gear Shop`} href={{ pathname: `/shop/gear`}}>
+              <Button
+                key="gearLink"
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                Gear
+              </Button>
+              </Link>
+              <Link aria-label={`Link for Gear Shop`} href={{ pathname: `/shop/sale`}}>
+              <Button
+                key="saleLink"
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                Sale
+              </Button>
+              </Link>
+              <Link aria-label={`Link for Gear Shop`} href={{ pathname: `/shop/learn`}}>
+              <Button
+                key="learnLink"
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                Learn
+              </Button>
+              </Link>
             <Search className="flex-1 mx-32">
             <SearchIconWrapper>
               <SearchIcon />

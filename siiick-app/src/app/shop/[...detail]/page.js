@@ -1,6 +1,7 @@
-import MyButton from "@/app/components/button";
-import Dropdown from "@/app/components/dropdown"
+import { useContext } from 'react';
+import { ShoppingBagContext } from "@/app/context/ShoppingBagContext";
 import { allProducts } from "@/app/productsData";
+import AddProductToBag, { addToBag } from '@/app/components/bagUseContext';
 
 function fetchProductById(productId) {
     return new Promise((resolve, reject) => {
@@ -14,8 +15,10 @@ function fetchProductById(productId) {
 }
 
 export default async function Page({ params }){
-    const detail = (await params).detail
-    const product = await fetchProductById(detail[2])
+    const detail = (await params).detail;
+    const product = await fetchProductById(detail[2]);
+
+
     return (
     <section>
     
@@ -42,7 +45,7 @@ export default async function Page({ params }){
             <img className="m-2 size-8"></img>
         </div>
         {/* <Dropdown list={styles}/> */}
-        <MyButton text="Add to Bag" />
+        <AddProductToBag product={product}/>
         </div>
 
     </div>

@@ -25,7 +25,7 @@ const sortOptions = [
     { name: 'Price: High to Low', href: '#', current: false },
   ]
   const subCategories = [
-    { name: 'Shoes', href: '#' },
+    { name: 'Shoes', href: '' },
     { name: 'Hoodies', href: '#' },
     { name: 'Tops & T-shirts', href: '#' },
     { name: 'Pants & Shorts', href: '#' },

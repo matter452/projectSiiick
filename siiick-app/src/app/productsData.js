@@ -6,7 +6,7 @@ export const allProducts = [
         "special": "New Arrival",
         "price": "$50",
         "imgPath": "/img/men-hoodie-1.jpg",
-        "title": "Classic Men's Hoodie",
+        "title": "Classic Hoodie",
         "description": "Comfortable hoodie for everyday wear.",
         "stylesCount": "2",
         "sizes": "S, M, L, XL",
@@ -117,7 +117,7 @@ export const allProducts = [
         "sizes": "One Size",
         "brand": "WarmNest",
         "color": "Red",
-        "tags": "Accessory, Winter, Women, Men"
+        "tags": "Accessory, Winter, Women, Men, Sale"
     },
     {
         "productId": "09",
@@ -192,7 +192,7 @@ export const allProducts = [
         "sizes": "52mm, 54mm",
         "brand": "WheelWorks",
         "color": "Blue",
-        "tags": "Durable, Versatile"
+        "tags": "Durable, Versatile, Sale"
     },
     {
         "productId": "14",
@@ -252,7 +252,7 @@ export const allProducts = [
         "sizes": "S, M, L",
         "brand": "SafetyFirst",
         "color": "Black",
-        "tags": "Protection, Basic"
+        "tags": "Protection, Basic, Sale"
     },
     {
         "productId": "18",
@@ -313,7 +313,7 @@ export const allProducts = [
         "sizes": "54mm",
         "brand": "NightSkate",
         "color": "Multi",
-        "tags": "Light-Up, Fun"
+        "tags": "Light-Up, Fun, Sale"
     },
     {
         "productId": "22",
@@ -373,7 +373,7 @@ export const allProducts = [
         "sizes": "S, M, L",
         "brand": "TinyThreads",
         "color": "Green",
-        "tags": "Casual, Cozy"
+        "tags": "Casual, Cozy, Sale"
     },
     {
         "productId": "26",
@@ -478,7 +478,7 @@ export const allProducts = [
         "sizes": "S, M, L, XL",
         "brand": "UrbanFit",
         "color": "Blue",
-        "tags": "Slim, Comfortable"
+        "tags": "Slim, Comfortable, Sale"
     },
     {
         "productId": "33",
@@ -538,7 +538,7 @@ export const allProducts = [
         "sizes": "8.0",
         "brand": "FlexRide",
         "color": "Green",
-        "tags": "Versatile, Beginner-Friendly"
+        "tags": "Versatile, Beginner-Friendly, Sale"
     },
     {
         "productId": "37",
@@ -598,7 +598,7 @@ export const allProducts = [
         "sizes": "M, L, XL",
         "brand": "GreenWear",
         "color": "Forest Green",
-        "tags": "Eco-Friendly, Warm"
+        "tags": "Eco-Friendly, Warm, Sale"
     },
     {
         "productId": "41",
@@ -718,7 +718,7 @@ export const allProducts = [
         "sizes": "139mm",
         "brand": "TerrainTough",
         "color": "Gunmetal",
-        "tags": "Durable, All-Terrain"
+        "tags": "Durable, All-Terrain, Sale"
     },
     {
         "productId": "49",
@@ -778,7 +778,7 @@ export const allProducts = [
         "sizes": "One Size",
         "brand": "BoldWear",
         "color": "Dark Brown",
-        "tags": "Handcrafted, Stylish"
+        "tags": "Handcrafted, Stylish, Sale"
     },
     {
         "productId": "53",
@@ -883,7 +883,7 @@ export const allProducts = [
         "sizes": "Standard",
         "brand": "SpeedPro",
         "color": "Silver",
-        "tags": "Smooth, Fast"
+        "tags": "Smooth, Fast, Sale"
     },
     {
         "productId": "60",
@@ -902,12 +902,21 @@ export const allProducts = [
     }
 ]
 
-function filterProductsByKey(array, key, value) {
-    return array.filter(item => item[key] === value);
+function filterProductsByKey(array, key, value, tags = false) {
+    if(tags)
+    {
+        return array.filter(item => item[key].includes(value));
+    }
+    else{
+        return array.filter(item => item[key] === value);
+    }
 }
 
 
 export const apparelProducts = filterProductsByKey(allProducts, "productCategory", "apparel");
+export const menProducts = filterProductsByKey(allProducts, "tags", "Men", true);
+export const womenProducts = filterProductsByKey(allProducts, "tags", "Women", true);
+export const saleProducts = filterProductsByKey(allProducts, "tags", "Sale", true);
 export const gearProducts = filterProductsByKey(allProducts, "productCategory", "gear");
 export const wheelsProducts = filterProductsByKey(allProducts, "subCategory", "wheels");
 export const boardsProducts = filterProductsByKey(allProducts, "subCategory", "boards");

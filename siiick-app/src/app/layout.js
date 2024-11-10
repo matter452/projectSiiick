@@ -4,6 +4,9 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import "./globals.css";
 import ResponsiveAppBar from "./components/appbar.js";
 import FooterComponent from "./components/footer.js";
+import PromoBanner from "./components/promoBanner.js";
+import ShoppingBagProvider from "./context/ShoppingBagContext.js";
+
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -37,8 +40,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-100`}>
+      <ShoppingBagProvider>
+        <PromoBanner />
         <ResponsiveAppBar />
         {children}
+      </ShoppingBagProvider>
         <FooterComponent />
       </body>
     </html>
