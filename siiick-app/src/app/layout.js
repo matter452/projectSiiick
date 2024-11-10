@@ -8,6 +8,7 @@ import PromoBanner from "./components/promoBanner.js";
 import ShoppingBagProvider from "./context/ShoppingBagContext.js";
 
 
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -41,8 +42,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-100`}>
       <ShoppingBagProvider>
-        <PromoBanner />
         <ResponsiveAppBar />
+        <PromoBanner />
         {children}
       </ShoppingBagProvider>
         <FooterComponent />

@@ -1,5 +1,6 @@
 'use client'
-import * as React from 'react';
+import { useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -18,6 +19,10 @@ import MenuItem from '@mui/material/MenuItem';
 import Image from 'next/image';
 import logo from '/public/logo-smallppi.png';
 import Link from 'next/link';
+import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
+import { Input } from '@mui/material';
+import Badge from '@mui/material/Badge';
+import { ShoppingBagContext } from '../context/ShoppingBagContext';
 
 const navLinks = [{'Men': "/shop/men"}, {'Women': "/shop/wommen"}, {'Boards': "/shop/gear/boards"},
   {'Gear': "/shop/gear"}, {'Learn': "/learn"}, {'Sale': "/shop/sale"}]
@@ -49,26 +54,15 @@ const Search = styled('div')(({ theme }) => ({
     justifyContent: 'center',
   }));
   
-  const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: 'inherit',
-    width: '100%',
-    '& .MuiInputBase-input': {
-      padding: theme.spacing(1, 1, 1, 0),
-      // vertical padding + font size from searchIcon
-      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-      transition: theme.transitions.create('width'),
-      [theme.breakpoints.up('sm')]: {
-        width: '12ch',
-        '&:focus': {
-          width: '20ch',
-        },
-      },
-    },
-  }));
 
 function ResponsiveAppBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const { bagItems, addToBag, removeFromBag } =  useContext(ShoppingBagContext);
+  const [bagItemsCount, setBagItemsCount] = useState('0');
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
+  const [searchInput, setSearchInput] = useState('');
+
+  useEffect(() => {setBagItemsCount(bagItems.length)}, [bagItems])
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -143,10 +137,7 @@ function ResponsiveAppBar() {
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
+            <Input type='search' placeholder='search'></Input>
           </Search>
             </Menu>
           </Box>
@@ -222,15 +213,17 @@ function ResponsiveAppBar() {
                 Learn
               </Button>
               </Link>
-            <Search className="flex-1 mx-32">
+            <Search className="flex-1 mx-2">
             <SearchIconWrapper>
               <SearchIcon />
+              <Input type='search' placeholder='search' value={searchInput} onChange={(e) => setSearchInput(e.target.value)}>{searchInput}</Input>
             </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
           </Search>
+          <IconButton aria-label='shopping bag' size='large'>
+          <Badge badgeContent={bagItemsCount} color="primary">
+            <ShoppingBagOutlinedIcon fontSize='large'/>
+            </Badge>
+          </IconButton>
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
