@@ -42,8 +42,8 @@ export default function Page(){
     const subTotal = bagItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
     return(
-        <section className="flex p-8">
-        <div className="flex flex-col w-2/3">
+    <section className="flex p-8 justify-between">
+        <div className="flex flex-col w-2/3 px-8">
         <h1 className="text-3xl mb-6 text-black font-black">Your Shopping Bag</h1>
             {bagItems.length === 0 ? (<p className="text-black">Your bag is empty.</p>) : (
                 bagItems.map((item) => (
@@ -53,7 +53,7 @@ export default function Page(){
                 )
             )}
         </div>
-        <div className="flex flex-col m-2 p-2">
+        <div className="flex flex-col mx-4 p-2">
             <h2 className="pb-4 text-lg">Summary</h2>
             <label className="text-medium font-semibold text-black">Promo Code</label>
             <Input type="text" placeholder="PROMOCODE" onChange={isValidCode}></Input>
