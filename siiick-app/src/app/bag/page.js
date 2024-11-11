@@ -10,9 +10,8 @@ export function BagItem({product, quantity, removeFunc}){
     const [itemQuantity, setItemQuantity] = useState(quantity);
     const incrementQuantity = () => setItemQuantity((prevQuantity) => prevQuantity + 1);
     const decrementQuantity = () => {
-        setItemQuantity((prevQuantity) => (prevQuantity > 1 ? prevQuantity - 1 : 1));
-    };
-
+        setItemQuantity((prevQuantity) => (prevQuantity > 1 ? prevQuantity - 1 : 1));   
+    }
     return(
         <div className="border border-slate-400 bg-slate-50 mb-2 p-4 rounded-md">
             <div className="flex justify-evenly mb-4 p-2">
@@ -49,7 +48,7 @@ export default function Page(){
             {bagItems.length === 0 ? (<p className="text-black">Your bag is empty.</p>) : (
                 bagItems.map((item) => (
 
-                    <BagItem key={item.id} product={item} quantity={item.quantity} removeFunc={() => removeFromBag(item.id)}/>
+                    <BagItem key={item.productId} product={item} quantity={item.quantity} removeFunc={() => removeFromBag(item.productId)}/>
                     )
                 )
             )}
@@ -74,5 +73,5 @@ export default function Page(){
             <Link href={'/checkout'}><button className="border rounded-full text-neutral-50 font-semi-bold bg-zinc-950 p-2 px-4 mt-4 hover:bg-zinc-700">Checkout</button></Link>
         </div>
     </section>
-    )
+    );
 }

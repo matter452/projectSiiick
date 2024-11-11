@@ -348,7 +348,7 @@ export const allProducts = [
     {
         "productId": "24",
         "productCategory": "apparel",
-        "subCategory": "kids",
+        "subCategory": "tops&t-shirts",
         "special": "New Arrival",
         "price": "25",
         "imgPath": "/img/kids-tee-1.jpg",
@@ -363,7 +363,7 @@ export const allProducts = [
     {
         "productId": "25",
         "productCategory": "apparel",
-        "subCategory": "kids",
+        "subCategory": "hoodies",
         "special": "On Sale",
         "price": "30",
         "imgPath": "/img/kids-hoodie-1.jpg",
@@ -902,8 +902,8 @@ export const allProducts = [
     }
 ]
 
-function filterProductsByKey(array, key, value, tags = false) {
-    if(tags)
+function filterProductsByKey(array, key, value, multi = false) {
+    if(multi)
     {
         return array.filter(item => item[key].includes(value));
     }
@@ -916,16 +916,19 @@ function filterProductsByKey(array, key, value, tags = false) {
 export const apparelProducts = filterProductsByKey(allProducts, "productCategory", "apparel");
 export const menProducts = filterProductsByKey(allProducts, "tags", "Men", true);
 export const womenProducts = filterProductsByKey(allProducts, "tags", "Women", true);
-export const saleProducts = filterProductsByKey(allProducts, "tags", "Sale", true);
 export const gearProducts = filterProductsByKey(allProducts, "productCategory", "gear");
-export const wheelsProducts = filterProductsByKey(allProducts, "subCategory", "wheels");
-export const boardsProducts = filterProductsByKey(allProducts, "subCategory", "boards");
-export const safetyProducts = filterProductsByKey(allProducts, "subCategory", "helmets&pads");
-export const hardwareProducts = filterProductsByKey(allProducts, "subCategory", "hardware");
-export const trucksProducts = filterProductsByKey(allProducts, "subCategory", "trucks");
-export const completesProducts = filterProductsByKey(allProducts, "subCategory", "completes");
-export const shoeProducts = filterProductsByKey(allProducts, "subCategory", "shoes");
-export const accessoriesProducts = filterProductsByKey(allProducts, "subCategory", "accessories");
-export const topsAndTshirtProducts = filterProductsByKey(allProducts, "subCategory", "tops&t-shirts");
-export const pantsAndBottomsProducts = filterProductsByKey(allProducts, "subCategory", "pants&bottoms");
-export const hoodiesProducts = filterProductsByKey(allProducts, "subCategory", "hoodies");
+//filtering for gear lists
+export const saleProducts = (products) => filterProductsByKey(products, "tags", "Sale", true);
+export const wheelsProducts = (products) => filterProductsByKey(products, "subCategory", "wheels");
+export const boardsProducts = (products) => filterProductsByKey(products, "subCategory", "boards");
+export const safetyProducts = (products) => filterProductsByKey(products, "subCategory", "helmets&pads");
+export const hardwareProducts = (products) => filterProductsByKey(products, "subCategory", "hardware");
+export const trucksProducts = (products) => filterProductsByKey(products, "subCategory", "trucks");
+export const completesProducts = (products) => filterProductsByKey(products, "subCategory", "completes");
+export const boardsSizeProducts = (products, size) => filterProductsByKey(products, "sizes", size, true);
+//filtering for men/women
+export const shoeProducts = (products) => filterProductsByKey(products, "subCategory", "shoes");
+export const accessoriesProducts = (products) => filterProductsByKey(products, "subCategory", "accessories");
+export const topsAndTshirtProducts = (products) => filterProductsByKey(products, "subCategory", "tops&t-shirts");
+export const pantsAndBottomsProducts = (products) => filterProductsByKey(products, "subCategory", "pants&bottoms");
+export const hoodiesProducts = (products) => filterProductsByKey(products, "subCategory", "hoodies");

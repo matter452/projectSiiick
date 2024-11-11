@@ -1,11 +1,11 @@
-import { boardsProducts } from "@/app/productsData";
+import { allProducts, boardsProducts, gearProducts } from "@/app/productsData";
 import SideFilter from "../../sidefilters";
 
-const products = boardsProducts;
+const products = boardsProducts(gearProducts);
 
 export default function Page(){
     return (
     <section>
-        <SideFilter products={products}/>
+        <SideFilter products={products} shop='boards' />
     </section>)
 }

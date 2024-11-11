@@ -6,6 +6,6 @@ const products = gearProducts;
 export default function Page(){
     return (
     <section>
-        <SideFilter products={products}/>
+        <SideFilter products={products} shop='gear' />
     </section>)
 }

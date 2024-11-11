@@ -21,7 +21,7 @@ export default function ShoppingBagProvider({ children }) {
 
     const removeFromBag = (productId) => {
         setBagItems((prevItems) =>
-            prevItems.filter(item => item.id !== productId)
+            prevItems.filter(item => item.productId !== productId)
         );
     };
 

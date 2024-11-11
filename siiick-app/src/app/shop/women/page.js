@@ -6,6 +6,6 @@ const products = womenProducts;
 export default function Page(){
     return (
     <section>
-        <SideFilter products={products} />
+        <SideFilter products={products} shop='apparel' />
     </section>)
 }
