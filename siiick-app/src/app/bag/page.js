@@ -42,7 +42,7 @@ export default function Page(){
     const subTotal = bagItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
     return(
-    <section className="flex p-8 justify-between">
+    <section className="flex p-8 justify-evenly">
         <div className="flex flex-col w-2/3 px-8">
         <h1 className="text-3xl mb-6 text-black font-black">Your Shopping Bag</h1>
             {bagItems.length === 0 ? (<p className="text-black">Your bag is empty.</p>) : (
