@@ -2,7 +2,7 @@ import * as React from 'react';
 
 export default function FooterComponent() {
   return (
-    <footer className="bg-dark relative left-0 right-0 bottom-0">
+    <footer className="flex flex-row mt-2">
       <div className="w-full">
         <div className="flex flex-row justify-center justify gap-x-16 px-16 my-16">
           {/* Company Section */}

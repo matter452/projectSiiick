@@ -25,7 +25,7 @@ export default function Page(){
     return (
     <section className="flex flex-col items-center mt-8">
         <h1 className='text-3xl text-black font-black place-center'>Login</h1>
-        <div className="flex flex-col place-items-center w-1/4 m-4 border rounded border-slate-300 p-8 bg-white ">
+        <div className="flex flex-col place-items-center min-w-1/4 m-4 border rounded border-slate-300 p-8 bg-white ">
             <form id="loginform" action="/" method="post"  className="flex flex-col mb-4 justify-center" >
                 <label className="text-black font-semibold" htmlFor="email">Email  <div className="text-sm text-slate-500">*required</div></label>
                 <input className={`px-4 text-black rounded ${!isEmailValid ? 'border-2 border-red-500 focus:ring focus:ring-red-500' : ''}`} type="email" id="email" name="email" placeholder='email' onChange={handleChange} 

@@ -1,5 +1,3 @@
-import { useContext } from 'react';
-import { ShoppingBagContext } from "@/app/context/ShoppingBagContext";
 import { allProducts } from "@/app/productsData";
 import AddProductToBag, { addToBag } from '@/app/components/bagUseContext';
 
@@ -43,7 +41,6 @@ export default async function Page({ params }){
             <img className="m-2 size-8"></img>
             <img className="m-2 size-8"></img>
         </div>
-        {/* <Dropdown list={styles}/> */}
         <AddProductToBag product={product}/>
         </div>
 

@@ -1,11 +1,21 @@
 'use client';
 import { createContext } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const ShoppingBagContext = createContext();
 
 export default function ShoppingBagProvider({ children }) {
     const [bagItems, setBagItems] = useState([]);
+    const [itemsCount, setItemsCount] = useState(0);
+    const [subTotal, setSubtotal] = useState(0);
+
+    useEffect(() => {
+        const totalItems = bagItems.reduce((count, item) => count + item.quantity, 0);
+        const totalCost = bagItems.reduce((total, item) => total + item.price * item.quantity, 0);
+        setItemsCount(totalItems);
+        setSubtotal(totalCost);
+    }, [bagItems]);
+    
 
     const addToBag = (product) => {
         setBagItems((prevItems) => {
@@ -25,8 +35,21 @@ export default function ShoppingBagProvider({ children }) {
         );
     };
 
+    const decrementQuantity = (productId) => {
+        setBagItems((prevItems) => {
+            return prevItems.map(item => {
+                if (item.productId === productId) {
+                    return item.quantity > 1
+                        ? { ...item, quantity: item.quantity - 1 }
+                        : { ...item, quantity: item.quantity};
+                }
+                return item;
+            }).filter(Boolean);
+        });
+    };
+
     return (
-        <ShoppingBagContext.Provider value={{ bagItems, addToBag, removeFromBag }}>
+        <ShoppingBagContext.Provider value={{ bagItems, addToBag, removeFromBag, decrementQuantity, subTotal, itemsCount }}>
             {children}
         </ShoppingBagContext.Provider>
     );

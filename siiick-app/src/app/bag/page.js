@@ -6,12 +6,13 @@ import { useContext } from "react";
 import { Button, Input } from "@mui/material";
 import Link from "next/link";
 
-export function BagItem({product, quantity, removeFunc}){
-    const [itemQuantity, setItemQuantity] = useState(quantity);
-    const incrementQuantity = () => setItemQuantity((prevQuantity) => prevQuantity + 1);
-    const decrementQuantity = () => {
-        setItemQuantity((prevQuantity) => (prevQuantity > 1 ? prevQuantity - 1 : 1));   
-    }
+export function BagItem({ product, removeFunc, subtractItemQuantity, addItemQuantity}){
+    const [itemQuantity, setItemQuantity] = useState(product.quantity);
+
+    useEffect(() => {
+        setItemQuantity(product.quantity);
+    }, [product.quantity]);
+
     return(
         <div className="border border-slate-400 bg-slate-50 mb-2 p-4 rounded-md">
             <div className="flex justify-evenly mb-4 p-2">
@@ -24,9 +25,9 @@ export function BagItem({product, quantity, removeFunc}){
             </div>
             <div className="flex items-center justify-between my-2 px-4">
                 <div className="flex items-center mx-4 border border-black rounded-full">
-                    <button onClick={decrementQuantity} className="text-black font-bold rounded-l-full px-2 border border-black hover:bg-slate-200">-</button>
+                    <button onClick={subtractItemQuantity} className="text-black font-bold rounded-l-full px-2 border border-black hover:bg-slate-200">-</button>
                     <div className="text-black mx-2">{itemQuantity}</div>
-                    <button onClick={incrementQuantity} className="text-black font-bold rounded-r-full px-2 border border-black hover:bg-slate-200">+</button>
+                    <button onClick={addItemQuantity} className="text-black font-bold rounded-r-full px-2 border border-black hover:bg-slate-200">+</button>
                 </div>
                 <button onClick={removeFunc} className="text-red-500 mx-4">Remove</button>
             </div>
@@ -35,11 +36,14 @@ export function BagItem({product, quantity, removeFunc}){
 }
 
 export default function Page(){
-    const { bagItems, addToBag, removeFromBag } =  useContext(ShoppingBagContext);
+    const { bagItems, addToBag, removeFromBag, decrementQuantity, subTotal, itemsCount } =  useContext(ShoppingBagContext);
     const [validCode, setValidCode] = useState(false);
     const validCodeExp = /siiick15/;
     const isValidCode = (e) => {validCodeExp.test(e.target.value) ? setValidCode(true) : setValidCode(false)}
-    const subTotal = bagItems.reduce((total, item) => total + item.price * item.quantity, 0);
+
+/*     useEffect(() => {
+        setSubtotal(bagItems.reduce((total, item) => total + item.price * item.quantity, 0));
+    }, [bagItems]); */
 
     return(
     <section className="flex p-8 justify-evenly">
@@ -48,7 +52,16 @@ export default function Page(){
             {bagItems.length === 0 ? (<p className="text-black">Your bag is empty.</p>) : (
                 bagItems.map((item) => (
 
-                    <BagItem key={item.productId} product={item} quantity={item.quantity} removeFunc={() => removeFromBag(item.productId)}/>
+                    <BagItem key={item.productId} product={item} 
+                        removeFunc={() => {
+                            removeFromBag(item.productId);
+                        }} 
+                        subtractItemQuantity={()=> {
+                            decrementQuantity(item.productId);
+                        }}
+                        addItemQuantity={() => {
+                            addToBag(item);
+                        }}/>
                     )
                 )
             )}

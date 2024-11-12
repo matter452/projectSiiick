@@ -41,12 +41,17 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-100`}>
-      <ShoppingBagProvider>
-        <ResponsiveAppBar />
-        <PromoBanner />
-        {children}
-      </ShoppingBagProvider>
-        <FooterComponent />
+      <div className="flex flex-col h-screen bg-white">
+
+        <ShoppingBagProvider>
+          <ResponsiveAppBar />
+          <PromoBanner />
+          <main className="relative flex flex-col grow">
+            {children}
+          </main>
+        </ShoppingBagProvider>
+          <FooterComponent />
+        </div>
       </body>
     </html>
   );
