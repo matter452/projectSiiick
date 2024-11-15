@@ -25,6 +25,7 @@ import { Input } from '@mui/material';
 import Badge from '@mui/material/Badge';
 import { ShoppingBagContext } from '../context/ShoppingBagContext';
 import { indigo } from '@mui/material/colors';
+import SearchBar from './searchbar';
 
 const navLinks = [{'Men': "/shop/men"}, {'Women': "/shop/wommen"}, {'Boards': "/shop/gear/boards"},
   {'Gear': "/shop/gear"}, {'Learn': "/learn"}, {'Sale': "/shop/sale"}]
@@ -207,12 +208,13 @@ function ResponsiveAppBar() {
                 Learn
               </Button>
               </Link>
-            <Search className="flex-1 mx-2">
+              <SearchBar />
+            {/* <Search className="flex-1 mx-2">
             <SearchIconWrapper>
               <SearchIcon />
               <Input type='search' placeholder='search' value={searchInput} onChange={(e) => setSearchInput(e.target.value)}>{searchInput}</Input>
             </SearchIconWrapper>
-          </Search>
+          </Search> */}
           <IconButton aria-label={`Shopping bag. Items in bag: ${itemsCount}`} size='large'>
           <Badge badgeContent={itemsCount} color="warning">
             {itemsCount < 1 ? <ShoppingBagOutlinedIcon sx={{ color: indigo[50]}} fontSize='large'/> : <Link href={{pathname: `/bag`}}><ShoppingBagIcon sx={{ color: indigo[50]}} fontSize='large'/></Link>}      
