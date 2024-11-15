@@ -19,6 +19,20 @@ export default function ShoppingBagProvider({ children }) {
         });
     };
 
+    const removeQuantity = (product) => {
+        setBagItems((items) => {
+            return items
+                .map((item) => {
+                    // Only decrement quantity if the product matches
+                    if (item.productId === product.productId) {
+                        return { ...item, quantity: item.quantity - 1 };
+                    }
+                    return item;
+                })
+                .filter(item => item.quantity <= 0);
+        });
+    };
+
     const removeFromBag = (productId) => {
         setBagItems((prevItems) =>
             prevItems.filter(item => item.productId !== productId)
