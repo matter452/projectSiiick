@@ -4,8 +4,6 @@ import { useState } from 'react';
 function SelectionList({ options }){
     return options.map((selectOption) => (<option key={selectOption.value} value={selectOption.value} className='text-black'>{selectOption.name}</option>));
 }
-    
-    
 
 export default function Select({options, selectedValue, className}){
     const [selection, setSelection] = useState('Sort by')
@@ -15,7 +13,6 @@ export default function Select({options, selectedValue, className}){
         selectedValue(e.target.value)
     };
     
-
     return (
         <div className={className}>
         <label for="sort by" className='sr-only'>Sort by</label>

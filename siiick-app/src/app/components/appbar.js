@@ -25,10 +25,11 @@ import { Input } from '@mui/material';
 import Badge from '@mui/material/Badge';
 import { ShoppingBagContext } from '../context/ShoppingBagContext';
 import { indigo } from '@mui/material/colors';
+import SearchBar from './searchbar';
 
 const navLinks = [{'Men': "/shop/men"}, {'Women': "/shop/wommen"}, {'Boards': "/shop/gear/boards"},
   {'Gear': "/shop/gear"}, {'Learn': "/learn"}, {'Sale': "/shop/sale"}]
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Account', 'Orders', 'Logout'];
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -58,13 +59,10 @@ const Search = styled('div')(({ theme }) => ({
   
 
 function ResponsiveAppBar() {
-  const { bagItems, addToBag, removeFromBag } =  useContext(ShoppingBagContext);
-  const [bagItemsCount, setBagItemsCount] = useState('0');
+  const { itemsCount } =  useContext(ShoppingBagContext);
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [searchInput, setSearchInput] = useState('');
-
-  useEffect(() => {setBagItemsCount(bagItems.length)}, [bagItems])
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -85,7 +83,7 @@ function ResponsiveAppBar() {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Image src={logo} width={200} height={200} alt="Brand Logo" />
+          <Link aria-label="Clickable image of logo linking to homepage" href={'/'}><Image src={logo} width={200} height={200} alt="Brand Logo" /></Link>
           <Typography
             variant="h6"
             noWrap
@@ -130,11 +128,6 @@ function ResponsiveAppBar() {
               onClose={handleCloseNavMenu}
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
-              {/* {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
-                </MenuItem>
-              ))} */}
               <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -215,15 +208,16 @@ function ResponsiveAppBar() {
                 Learn
               </Button>
               </Link>
-            <Search className="flex-1 mx-2">
+              <SearchBar />
+            {/* <Search className="flex-1 mx-2">
             <SearchIconWrapper>
               <SearchIcon />
               <Input type='search' placeholder='search' value={searchInput} onChange={(e) => setSearchInput(e.target.value)}>{searchInput}</Input>
             </SearchIconWrapper>
-          </Search>
-          <IconButton aria-label={`Shopping bag. Items in bag: ${bagItemsCount}`} size='large'>
-          <Badge badgeContent={bagItemsCount} color="warning">
-            {bagItemsCount < 1 ? <ShoppingBagOutlinedIcon sx={{ color: indigo[50]}} fontSize='large'/> : <Link href={{pathname: `/bag`}}><ShoppingBagIcon sx={{ color: indigo[50]}} fontSize='large'/></Link>}      
+          </Search> */}
+          <IconButton aria-label={`Shopping bag. Items in bag: ${itemsCount}`} size='large'>
+          <Badge badgeContent={itemsCount} color="warning">
+            {itemsCount < 1 ? <ShoppingBagOutlinedIcon sx={{ color: indigo[50]}} fontSize='large'/> : <Link href={{pathname: `/bag`}}><ShoppingBagIcon sx={{ color: indigo[50]}} fontSize='large'/></Link>}      
             </Badge>
           </IconButton>
           </Box>

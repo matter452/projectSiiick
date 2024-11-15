@@ -1,11 +1,8 @@
 'use client'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import { XMarkIcon } from '@heroicons/react/24/outline'
-import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
 import Select from '../components/select';
 import ItemGrid from './itemsGrid';
-import Link from 'next/link';
 import { accessoriesProducts, apparelProducts, boardsProducts, boardsSizeProducts, completesProducts, gearProducts, hardwareProducts, hoodiesProducts, menProducts, pantsAndBottomsProducts, safetyProducts, saleProducts, shoeProducts, topsAndTshirtProducts, trucksProducts, wheelsProducts, womenProducts } from '../productsData';
 
 

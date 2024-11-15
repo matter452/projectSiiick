@@ -6,16 +6,12 @@ import { useContext } from "react";
 import { Button, Input } from "@mui/material";
 import Link from "next/link";
 
-export function BagItem({product, quantity, removeFunc, onQuantityChange}){
-    const [itemQuantity, setItemQuantity] = useState(quantity);
-    const incrementQuantity = () => setItemQuantity((prevQuantity) => prevQuantity + 1);
-    const decrementQuantity = () => {
-        setItemQuantity((prevQuantity) => (prevQuantity > 1 ? prevQuantity - 1 : 1));   
-    }
+export function BagItem({ product, removeFunc, subtractItemQuantity, addItemQuantity}){
+    const [itemQuantity, setItemQuantity] = useState(product.quantity);
 
     useEffect(() => {
-        onQuantityChange(itemQuantity);
-    }, [itemQuantity, onQuantityChange]);
+        setItemQuantity(product.quantity);
+    }, [product.quantity]);
 
     return(
         <div className="border border-slate-400 bg-slate-50 mb-2 p-4 rounded-md">
@@ -29,9 +25,9 @@ export function BagItem({product, quantity, removeFunc, onQuantityChange}){
             </div>
             <div className="flex items-center justify-between my-2 px-4">
                 <div className="flex items-center mx-4 border border-black rounded-full">
-                    <button onClick={decrementQuantity} className="text-black font-bold rounded-l-full px-2 border border-black hover:bg-slate-200">-</button>
-                    <div onChange={() => onQuantityChange(itemQuantity)}className="text-black mx-2">{itemQuantity}</div>
-                    <button onClick={incrementQuantity} className="text-black font-bold rounded-r-full px-2 border border-black hover:bg-slate-200">+</button>
+                    <button onClick={subtractItemQuantity} className="text-black font-bold rounded-l-full px-2 border border-black hover:bg-slate-200">-</button>
+                    <div className="text-black mx-2">{itemQuantity}</div>
+                    <button onClick={addItemQuantity} className="text-black font-bold rounded-r-full px-2 border border-black hover:bg-slate-200">+</button>
                 </div>
                 <button onClick={removeFunc} className="text-red-500 mx-4">Remove</button>
             </div>
@@ -40,21 +36,16 @@ export function BagItem({product, quantity, removeFunc, onQuantityChange}){
 }
 
 export default function Page(){
-    const { bagItems, addToBag, removeFromBag } =  useContext(ShoppingBagContext);
+    const { bagItems, addToBag, removeFromBag, decrementQuantity, subTotal, itemsCount } =  useContext(ShoppingBagContext);
     const [validCode, setValidCode] = useState(false);
     const [promoCode, setPromoCode] = useState('');
     const [subTotal, setSubtotal] = useState(0);
     const validCodeExp = /siiick15/;
     const isValidCode = (e) => {validCodeExp.test(e.target.value) ? setValidCode(true) : setValidCode(false)}
 
-    useEffect(() => {
-        const newSubtotal = bagItems.reduce((total, item) => total + item.price * item.quantity, 0);
-        setSubtotal(newSubtotal);
-    }, [quantity]);
-
-    useEffect(() => {
-        setValidCode(validCodeExp.test(promoCode));
-    }, [promoCode]);
+/*     useEffect(() => {
+        setSubtotal(bagItems.reduce((total, item) => total + item.price * item.quantity, 0));
+    }, [bagItems]); */
 
     return(
     <section className="flex p-8 justify-evenly">
@@ -63,9 +54,16 @@ export default function Page(){
             {bagItems.length === 0 ? (<p className="text-black">Your bag is empty.</p>) : (
                 bagItems.map((item) => (
 
-                    <BagItem key={item.productId} product={item} quantity={item.quantity} onQuantityChange={(newQuantity) => {
-                        item.quantity = newQuantity;
-                    }} removeFunc={() => removeFromBag(item.productId)}/>
+                    <BagItem key={item.productId} product={item} 
+                        removeFunc={() => {
+                            removeFromBag(item.productId);
+                        }} 
+                        subtractItemQuantity={()=> {
+                            decrementQuantity(item.productId);
+                        }}
+                        addItemQuantity={() => {
+                            addToBag(item);
+                        }}/>
                     )
                 )
             )}

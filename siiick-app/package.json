@@ -19,7 +19,9 @@
     "next": "14.2.11",
     "react": "^18",
     "react-dom": "^18",
-    "use-local-storage-state": "^19.4.1"
+    "react-input-mask": "^2.0.4",
+    "use-local-storage-state": "^19.4.1",
+    "validator": "^13.12.0"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.9",
