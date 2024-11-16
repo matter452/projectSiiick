@@ -20,7 +20,7 @@ Before running this project, make sure you have the following installed on your 
 
 1. Clone the repository to your local machine:
    ```bash
-   git clone 'https://github.com/matter452/projectSiiick
+   git clone 'https://github.com/matter452/projectSiiick.git
    cd your-repo-name
 2. ```bash
     npm install
