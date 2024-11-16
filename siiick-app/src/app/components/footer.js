@@ -4,7 +4,7 @@ export default function FooterComponent() {
   return (
     <footer className="flex flex-row mt-2">
       <div className="w-full">
-        <div className="flex flex-row justify-center justify gap-x-16 px-16 my-16">
+        <div className="flex flex-row justify-center gap-x-16 px-16 my-16">
           {/* Company Section */}
           <div>
             <h3 className="text-lg font-semibold text-black mb-2">Help</h3>

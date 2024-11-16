@@ -40,8 +40,8 @@ const theme = createTheme({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-100`}>
-      <div className="flex flex-col h-screen bg-white">
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white`}>
+      <div className="">
 
         <ShoppingBagProvider>
           <ResponsiveAppBar />
@@ -50,8 +50,8 @@ export default function RootLayout({ children }) {
             {children}
           </main>
         </ShoppingBagProvider>
-          <FooterComponent />
         </div>
+          <FooterComponent />
       </body>
     </html>
   );

@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from "react"
 import { ShoppingBagContext } from "../context/ShoppingBagContext";
-import { allProducts } from "../productsData";
+import { allProducts } from "@/app/productsData";
 import { useContext } from "react";
 import { Button, Input } from "@mui/material";
 import Link from "next/link";
@@ -16,7 +16,7 @@ export function BagItem({ product, removeFunc, subtractItemQuantity, addItemQuan
     return(
         <div className="border border-slate-400 bg-slate-50 mb-2 p-4 rounded-md">
             <div className="flex justify-evenly mb-4 p-2">
-                <img src={product.imgPath} alt={`${product.title} image`} className="w-36 h-36 object-contain m-2 border" />
+            <img src={`${product.imgPath}`} fill={true} alt={`${product.title} image`} className="w-36 h-36 object-contain m-2 border"></img>
                 <div className="m-2 flex-grow">
                     <p className="text-black text-2xl font-black block">{product.title}</p>
                     <p className="text-black">{product.brand}</p>

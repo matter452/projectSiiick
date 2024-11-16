@@ -73,7 +73,7 @@ export default function SideFilter({products, shop}) {
     const [currentShop, setCurrentShop] = useState(shop);
     const [categoryList, setCategoryList] = useState([]);
     const [categoryName, setCategoryName] = useState('');
-  
+
     const handleSortOption = (option) => {setSortOption(option.value)}
     const filterProducts = (filterChoice) => {setCategoryFilter(filterChoice)}
 
@@ -168,7 +168,7 @@ export default function SideFilter({products, shop}) {
     return (
       <section className='bg-white'>
         <div className='flex flex-row justify-between mx-8 py-8'>
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900 mx-4">New Arrivals</h1>
+              <h1 className="text-4xl font-bold tracking-tight text-gray-900 mx-4">{categoryName} | {categoryFilter}</h1>
               <Select className={'mx-8'} options={sortOptions} selectedValue={handleSortOption} />
         </div>
       <div className="flex flex-row bg-white">

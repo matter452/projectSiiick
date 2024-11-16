@@ -9,7 +9,7 @@ export default function Page(){
             <h2 className="font-semibold">Thank you for your purchase.</h2>
             <p> Estimated delivery on Nov 26</p>
             <p>An email has been sent to your email address with confirmation.</p>
-            <Link href={'/checkout'}><button className="border rounded-full text-neutral-50 font-semi-bold bg-zinc-950 p-2 px-4 mt-4 hover:bg-zinc-700">Back to Store</button></Link>
+            <Link href={'/shop'}><button className="border rounded-full text-neutral-50 font-semi-bold bg-zinc-950 p-2 px-4 mt-4 hover:bg-zinc-700">Back to Store</button></Link>
         </section>
         </>
     )

@@ -22,7 +22,7 @@ export default async function Page({ params }){
     <div className="flex flex-row justify-center text-black">
         <div className="flex flex-col min-h-40">
             <div>
-                <img src={product.imgPath} fill={true} className="object-contain h-72 w-60 m-2"></img>
+                <img alt={product.title} src={product.imgPath} fill={true} className="object-contain h-72 w-60 m-2"></img>
                 <div className="flex flex-row">
                     <img className="size-20 m-2"></img>
                     <img className="size-20 m-2"></img>
@@ -30,11 +30,11 @@ export default async function Page({ params }){
                 </div>
             </div>
         </div>
-        <div className="flex flex-col m-16">
+        <div role='contentinfo' className="flex flex-col m-16">
         <h1 className="text-3xl text-black font-black mb-2">{product.title}</h1>
         <span className="font-bold">${product.price}</span>
         <h2 className="font-bold mt-16">Description</h2>
-        <p className="mb-16">{product.description}</p>
+        <p aria-label={`Product description: ${product.description}`} className="mb-16">{product.description}</p>
         <h3 className="font-bold">Styles Available</h3>
         <div className="flex flex-row mb-8">
             <img className="m-2 size-8"></img>
