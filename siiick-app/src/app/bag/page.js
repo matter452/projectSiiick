@@ -39,7 +39,7 @@ export default function Page(){
     const { bagItems, addToBag, removeFromBag, decrementQuantity, subTotal, itemsCount } =  useContext(ShoppingBagContext);
     const [validCode, setValidCode] = useState(false);
     const [promoCode, setPromoCode] = useState('');
-    const [subTotal, setSubtotal] = useState(0);
+   // const [subTotal, setSubtotal] = useState(0);
     const validCodeExp = /siiick15/;
     const isValidCode = (e) => {validCodeExp.test(e.target.value) ? setValidCode(true) : setValidCode(false)}
 
